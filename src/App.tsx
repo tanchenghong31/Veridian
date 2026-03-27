@@ -500,7 +500,7 @@ export default function App() {
                   transition={{ duration: 0.5 }}
                   className="grid md:grid-cols-2 gap-12 h-full items-center"
                 >
-                  <div className="order-1 md:order-1 text-center md:text-left">
+                  <div className="order-1 md:order-1 text-center md:text-left md:pl-20">
                     <span className="text-[#D4AF37] font-bold text-5xl mb-4 block">{content.units.types[activeUnit].id}</span>
                     <h3 className="text-3xl font-serif mb-2">{content.units.types[activeUnit].name}</h3>
                     <p className="text-xl text-white/80 mb-6">{content.units.types[activeUnit].size} • {content.units.types[activeUnit].rooms}</p>
