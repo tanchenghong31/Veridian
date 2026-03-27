@@ -130,14 +130,14 @@ const initialContent: PageContent = {
       { url: 'https://picsum.photos/seed/pool/800/1000', alt: 'Olympic Lap Pool' },
       { url: 'https://picsum.photos/seed/gym/800/1000', alt: 'Modern Gymnasium' },
       { url: 'https://picsum.photos/seed/cowork/800/1000', alt: 'Co-working Space' },
-      { url: 'https://picsum.photos/seed/skydeck/800/1000', alt: '4-Acre Sky Deck' },
-      { url: 'https://picsum.photos/seed/fac5/800/1000', alt: 'Facility 5' },
-      { url: 'https://picsum.photos/seed/fac6/800/1000', alt: 'Facility 6' },
-      { url: 'https://picsum.photos/seed/fac7/800/1000', alt: 'Facility 7' },
-      { url: 'https://picsum.photos/seed/fac8/800/1000', alt: 'Facility 8' },
-      { url: 'https://picsum.photos/seed/fac9/800/1000', alt: 'Facility 9' },
-      { url: 'https://picsum.photos/seed/fac10/800/1000', alt: 'Facility 10' },
-      { url: 'https://picsum.photos/seed/fac11/800/1000', alt: 'Facility 11' },
+      { url: 'https://picsum.photos/seed/skydeck/800/1000', alt: 'Private Function Room' },
+      { url: 'https://picsum.photos/seed/fac5/800/1000', alt: 'Community Square' },
+      { url: 'https://picsum.photos/seed/fac6/800/1000', alt: 'Skylit Cinema' },
+      { url: 'https://picsum.photos/seed/fac7/800/1000', alt: 'Pickle Ball Court' },
+      { url: 'https://picsum.photos/seed/fac8/800/1000', alt: 'Zen Garden' },
+      { url: 'https://picsum.photos/seed/fac9/800/1000', alt: 'Indoor Zen' },
+      { url: 'https://picsum.photos/seed/fac10/800/1000', alt: 'Grand Entrance' },
+      { url: 'https://picsum.photos/seed/fac11/800/1000', alt: 'Veridian Facade' },
     ],
   },
   location: {
@@ -205,8 +205,19 @@ const IconMap: Record<string, React.ReactNode> = {
 };
 
 export default function App() {
-  const [content, setContent] = useState<PageContent>(initialContent);
+  const [publishedContent, setPublishedContent] = useState<PageContent>(() => {
+    const saved = localStorage.getItem('veridian_published_content');
+    return saved ? JSON.parse(saved) : initialContent;
+  });
+  const [draftContent, setDraftContent] = useState<PageContent>(() => {
+    const saved = localStorage.getItem('veridian_draft_content');
+    return saved ? JSON.parse(saved) : initialContent;
+  });
+  const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
+  
+  const content = isPreviewMode ? draftContent : publishedContent;
+
   const [activeUnit, setActiveUnit] = useState(0);
   const [activeFacility, setActiveFacility] = useState(0);
   const [activeLocationCategory, setActiveLocationCategory] = useState<number | null>(0);
@@ -246,20 +257,31 @@ export default function App() {
   };
 
   const updateContent = (section: keyof PageContent, field: string, value: any, index?: number, subfield?: string) => {
-    setContent(prev => {
-      const newContent = { ...prev };
+    setDraftContent(prev => {
+      const newContent = JSON.parse(JSON.stringify(prev)); // Deep clone
       if (index !== undefined && subfield) {
-        // @ts-ignore
         newContent[section][field][index][subfield] = value;
       } else if (index !== undefined) {
-        // @ts-ignore
         newContent[section][field][index] = value;
       } else {
-        // @ts-ignore
         newContent[section][field] = value;
       }
-      return { ...newContent };
+      localStorage.setItem('veridian_draft_content', JSON.stringify(newContent));
+      return newContent;
     });
+  };
+
+  const publishContent = () => {
+    setPublishedContent(draftContent);
+    localStorage.setItem('veridian_published_content', JSON.stringify(draftContent));
+    alert('Content published successfully!');
+  };
+
+  const discardDraft = () => {
+    if (confirm('Are you sure you want to discard all draft changes?')) {
+      setDraftContent(publishedContent);
+      localStorage.setItem('veridian_draft_content', JSON.stringify(publishedContent));
+    }
   };
 
   const ImageUpload = ({ value, onChange, label }: { value: string, onChange: (val: string) => void, label: string }) => {
@@ -300,6 +322,20 @@ export default function App() {
 
   return (
     <div className="min-h-screen font-sans selection:bg-[#D4AF37]/30" style={{ backgroundColor: colors.stone, color: colors.walnut }}>
+      {/* Preview Banner */}
+      <AnimatePresence>
+        {isPreviewMode && (
+          <motion.div 
+            initial={{ y: -50 }}
+            animate={{ y: 0 }}
+            exit={{ y: -50 }}
+            className="fixed top-0 left-0 right-0 z-[110] bg-[#D4AF37] text-white py-2 px-4 text-center text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg"
+          >
+            Preview Mode Active — Viewing Draft Content
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Editor Toggle Button */}
       <button 
         onClick={() => setShowEditor(!showEditor)}
@@ -320,25 +356,56 @@ export default function App() {
           >
             <h2 className="text-2xl font-serif mb-8 border-b pb-4">Content Editor</h2>
             
+            <div className="flex flex-col gap-4 mb-8 p-4 bg-stone-50 rounded-sm border border-stone-200">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-widest text-stone-500">Preview Mode</span>
+                <button 
+                  onClick={() => setIsPreviewMode(!isPreviewMode)}
+                  className={`w-12 h-6 rounded-full transition-colors relative ${isPreviewMode ? 'bg-[#D4AF37]' : 'bg-stone-300'}`}
+                >
+                  <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${isPreviewMode ? 'left-7' : 'left-1'}`} />
+                </button>
+              </div>
+              <p className="text-[10px] text-stone-400 leading-relaxed">
+                {isPreviewMode 
+                  ? "You are viewing DRAFT content. Changes you make here are saved as drafts." 
+                  : "You are viewing PUBLISHED content. Switch to Preview Mode to see and edit drafts."}
+              </p>
+              <div className="grid grid-cols-2 gap-2 mt-2">
+                <button 
+                  onClick={publishContent}
+                  className="bg-[#D4AF37] text-white py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-[#c4a132] transition-colors"
+                >
+                  Publish Draft
+                </button>
+                <button 
+                  onClick={discardDraft}
+                  className="bg-white text-stone-500 border border-stone-200 py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-stone-50 transition-colors"
+                >
+                  Discard Draft
+                </button>
+              </div>
+            </div>
+
             {/* Hero Section Editor */}
             <div className="mb-10">
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37] mb-4">Hero Section</h3>
               <div className="space-y-4">
                 <input 
                   className="w-full p-3 border border-stone-200 rounded-sm text-sm"
-                  value={content.hero.headline}
+                  value={draftContent.hero.headline}
                   onChange={(e) => updateContent('hero', 'headline', e.target.value)}
                   placeholder="Headline"
                 />
                 <textarea 
                   className="w-full p-3 border border-stone-200 rounded-sm text-sm h-24"
-                  value={content.hero.subheadline}
+                  value={draftContent.hero.subheadline}
                   onChange={(e) => updateContent('hero', 'subheadline', e.target.value)}
                   placeholder="Subheadline"
                 />
                 <ImageUpload 
                   label="Hero Image"
-                  value={content.hero.image}
+                  value={draftContent.hero.image}
                   onChange={(val) => updateContent('hero', 'image', val)}
                 />
               </div>
@@ -347,7 +414,7 @@ export default function App() {
             {/* At a Glance Editor */}
             <div className="mb-10">
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37] mb-4">At a Glance</h3>
-              {content.atAGlance.items.map((item, idx) => (
+              {draftContent.atAGlance.items.map((item, idx) => (
                 <div key={idx} className="mb-4 p-4 bg-stone-50 rounded-sm space-y-2">
                   <p className="text-[10px] font-bold text-stone-400">ITEM {idx + 1}</p>
                   <input 
@@ -371,11 +438,11 @@ export default function App() {
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37] mb-4">The Vibe</h3>
               <input 
                 className="w-full p-3 border border-stone-200 rounded-sm text-sm mb-4"
-                value={content.vibe.title}
+                value={draftContent.vibe.title}
                 onChange={(e) => updateContent('vibe', 'title', e.target.value)}
                 placeholder="Section Title"
               />
-              {content.vibe.cards.map((card, idx) => (
+              {draftContent.vibe.cards.map((card, idx) => (
                 <div key={idx} className="mb-6 p-4 bg-stone-50 rounded-sm space-y-3">
                   <p className="text-[10px] font-bold text-stone-400">CARD {idx + 1}</p>
                   <input 
@@ -404,11 +471,11 @@ export default function App() {
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37] mb-4">Unit Types</h3>
               <input 
                 className="w-full p-3 border border-stone-200 rounded-sm text-sm mb-4"
-                value={content.units.title}
+                value={draftContent.units.title}
                 onChange={(e) => updateContent('units', 'title', e.target.value)}
                 placeholder="Section Title"
               />
-              {content.units.types.map((type, idx) => (
+              {draftContent.units.types.map((type, idx) => (
                 <div key={idx} className="mb-6 p-4 bg-stone-50 rounded-sm space-y-3">
                   <p className="text-[10px] font-bold text-stone-400">TYPE {type.id}</p>
                   <input 
@@ -440,18 +507,18 @@ export default function App() {
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37] mb-4">Facilities</h3>
               <input 
                 className="w-full p-3 border border-stone-200 rounded-sm text-sm mb-4"
-                value={content.facilities.title}
+                value={draftContent.facilities.title}
                 onChange={(e) => updateContent('facilities', 'title', e.target.value)}
                 placeholder="Section Title"
               />
               <textarea 
                 className="w-full p-3 border border-stone-200 rounded-sm text-sm h-24 mb-4"
-                value={content.facilities.description}
+                value={draftContent.facilities.description}
                 onChange={(e) => updateContent('facilities', 'description', e.target.value)}
                 placeholder="Description"
               />
               <p className="text-[10px] font-bold text-stone-400 mb-2">SLIDER IMAGES</p>
-              {content.facilities.images.map((img, idx) => (
+              {draftContent.facilities.images.map((img, idx) => (
                 <div key={idx} className="mb-4 space-y-2 p-3 bg-stone-50 rounded-sm">
                   <ImageUpload 
                     label={`Facility Image ${idx + 1}`}
@@ -473,22 +540,22 @@ export default function App() {
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37] mb-4">Location</h3>
               <input 
                 className="w-full p-3 border border-stone-200 rounded-sm text-sm mb-2"
-                value={content.location.title}
+                value={draftContent.location.title}
                 onChange={(e) => updateContent('location', 'title', e.target.value)}
                 placeholder="Title"
               />
               <input 
                 className="w-full p-3 border border-stone-200 rounded-sm text-sm mb-4"
-                value={content.location.subtitle}
+                value={draftContent.location.subtitle}
                 onChange={(e) => updateContent('location', 'subtitle', e.target.value)}
                 placeholder="Subtitle"
               />
               <ImageUpload 
                 label="Map Image"
-                value={content.location.mapImage}
+                value={draftContent.location.mapImage}
                 onChange={(val) => updateContent('location', 'mapImage', val)}
               />
-              {content.location.items.map((item, idx) => (
+              {draftContent.location.items.map((item, idx) => (
                 <div key={idx} className="mb-4 p-4 bg-stone-50 rounded-sm space-y-2">
                   <input 
                     className="w-full p-2 border border-stone-200 rounded-sm text-sm font-bold"
@@ -503,7 +570,7 @@ export default function App() {
                 </div>
               ))}
               <p className="text-[10px] font-bold text-stone-400 mb-2 mt-6 uppercase tracking-widest">Surrounding Amenities</p>
-              {content.location.amenities.map((cat, catIdx) => (
+              {draftContent.location.amenities.map((cat, catIdx) => (
                 <div key={catIdx} className="mb-6 p-4 border border-stone-100 rounded-sm space-y-3">
                   <input 
                     className="w-full p-2 border border-stone-200 rounded-sm text-sm font-bold text-[#D4AF37]"
@@ -545,19 +612,19 @@ export default function App() {
               <div className="space-y-4">
                 <textarea 
                   className="w-full p-3 border border-stone-200 rounded-sm text-sm h-24"
-                  value={content.footer.description}
+                  value={draftContent.footer.description}
                   onChange={(e) => updateContent('footer', 'description', e.target.value)}
                   placeholder="Footer Description"
                 />
                 <input 
                   className="w-full p-3 border border-stone-200 rounded-sm text-sm"
-                  value={content.footer.phone}
+                  value={draftContent.footer.phone}
                   onChange={(e) => updateContent('footer', 'phone', e.target.value)}
                   placeholder="Phone Number"
                 />
                 <input 
                   className="w-full p-3 border border-stone-200 rounded-sm text-sm"
-                  value={content.footer.copyright}
+                  value={draftContent.footer.copyright}
                   onChange={(e) => updateContent('footer', 'copyright', e.target.value)}
                   placeholder="Copyright Text"
                 />
