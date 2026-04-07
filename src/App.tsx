@@ -375,7 +375,7 @@ export default function App() {
           <div className="absolute inset-0 z-0">
             <img 
               src={content.hero.image} 
-              alt="Veridian Residence Exterior" 
+              alt="veridian residence pj facade" 
               className="w-full h-full object-right md:object-center object-cover brightness-75"
               referrerPolicy="no-referrer"
             />
