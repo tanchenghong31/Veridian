@@ -253,8 +253,13 @@ export default function App() {
           isScrolled || isMenuOpen ? 'bg-white shadow-sm text-stone-900' : 'bg-transparent text-white'
         } ${isVisible || isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
       >
-        <div className="text-2xl font-serif tracking-widest uppercase cursor-pointer" onClick={() => scrollToSection('hero')}>
-          Veridian
+        <div className="cursor-pointer flex items-center" onClick={() => scrollToSection('hero')}>
+          <img 
+            src="https://lh3.googleusercontent.com/d/18bKR9B-xw5LfHXWi6_obPW1ER-80VtKH" 
+            alt="veridianpjlogo" 
+            className={`h-8 md:h-10 transition-all duration-300 ${isScrolled || isMenuOpen ? 'brightness-0' : 'brightness-0 invert'}`}
+            referrerPolicy="no-referrer"
+          />
         </div>
         
         {/* Desktop Nav */}
@@ -316,7 +321,12 @@ export default function App() {
                 className="fixed inset-y-0 right-0 w-full sm:w-80 bg-white shadow-2xl z-50 p-10 flex flex-col"
               >
               <div className="flex justify-between items-center mb-12">
-                <span className="text-xl font-serif tracking-widest uppercase">Veridian</span>
+                <img 
+                  src="https://lh3.googleusercontent.com/d/18bKR9B-xw5LfHXWi6_obPW1ER-80VtKH" 
+                  alt="veridianpjlogo" 
+                  className="h-8 brightness-0"
+                  referrerPolicy="no-referrer"
+                />
                 <button onClick={() => setIsMenuOpen(false)} className="p-2 hover:bg-stone-100 rounded-full">
                   <X className="w-6 h-6" />
                 </button>
@@ -893,7 +903,12 @@ export default function App() {
       <footer className="bg-[#44403C] text-white py-10 md:py-16 px-6 border-t border-white/10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 md:gap-12 text-center md:text-left">
           <div className="col-span-2 flex flex-col items-center md:items-start">
-            <h2 className="text-2xl md:text-3xl font-serif tracking-widest uppercase mb-4 md:mb-6">Veridian</h2>
+            <img 
+              src="https://lh3.googleusercontent.com/d/18bKR9B-xw5LfHXWi6_obPW1ER-80VtKH" 
+              alt="veridianpjlogo" 
+              className="h-10 mb-4 md:mb-6 brightness-0 invert"
+              referrerPolicy="no-referrer"
+            />
             <p className="text-white/60 max-w-md leading-relaxed text-sm md:text-base whitespace-pre-line">
               {content.footer.description}
             </p>
