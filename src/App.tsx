@@ -96,8 +96,8 @@ const initialContent: PageContent = {
   vibe: {
     title: "The Veridian Vibe",
     cards: [
-      { title: "Vibrant Community", desc: "Experience a well-planned project in PJ designed for modern living, where residents enjoy a connected lifestyle within a growing Petaling Jaya neighbourhood.", img: "https://picsum.photos/seed/community/600/800" },
-      { title: "Versatile Layouts", desc: "Explore flexible Veridian layouts ranging from practical family units to dual-key options, offering efficient space planning and ideal configurations for both own stay and investment.", img: "https://picsum.photos/seed/layout/600/800" },
+      { title: "Vibrant Community", desc: "Experience a well-planned project in PJ designed for modern living, where residents enjoy a connected lifestyle within a growing Petang Jaya neighbourhood.", img: "https://lh3.googleusercontent.com/d/12PtOA89N21NzDymXLDZf4_iTQ4E6is_K" },
+      { title: "Versatile Layouts", desc: "Explore flexible Veridian layouts ranging from practical family units to dual-key options, offering efficient space planning and ideal configurations for both own stay and investment.", img: "https://lh3.googleusercontent.com/d/1ArfzaPAMnR5upAQHzxlm_roSpxhBkQXT" },
       { title: "Zen Aesthetics", desc: "Designed with calming Japandi-inspired interiors, each unit features well-balanced Veridian size layouts that maximise space, natural light, and everyday comfort.", img: "https://fastly.picsum.photos/id/625/2507/1674.jpg?hmac=ZuCWygmEqFbv5q0hlD-jimDTtYWRwgAebHLepuXaUUk" },
     ],
   },
@@ -105,13 +105,13 @@ const initialContent: PageContent = {
     title: "Unit Types",
     subtitle: "Find your perfect space",
     types: [
-      { id: 'A', name: 'Type A', size: '947 sq.ft.', rooms: '3 Bedrooms', features: ['No Versatile Room', 'Standard Layout'], image: 'https://picsum.photos/seed/unit-a/800/600' },
-      { id: 'A1', name: 'Type A1', size: '1,098 sq.ft.', rooms: '3 Bedrooms + 1 Versatile Room', features: ['Standard Layout'], image: 'https://picsum.photos/seed/unit-a1/800/600' },
-      { id: 'B', name: 'Type B', size: '1,055 sq.ft.', rooms: '3 Bedrooms', features: ['Standard Layout'], image: 'https://picsum.photos/seed/unit-b/800/600' },
-      { id: 'B1', name: 'Type B1', size: '1,206 sq.ft.', rooms: '3 Bedrooms + 1 Versatile Room', features: ['Standard Layout'], image: 'https://picsum.photos/seed/unit-b1/800/600' },
-      { id: 'B2', name: 'Type B2', size: '1,055 sq.ft.', rooms: '3 Bedrooms', features: ['Dual Key Layout'], image: 'https://picsum.photos/seed/unit-b2/800/600' },
-      { id: 'C', name: 'Type C', size: '1,195 sq.ft.', rooms: '3 Bedrooms + 1 Versatile Room', features: ['Dual Key Layout'], image: 'https://picsum.photos/seed/unit-c/800/600' },
-      { id: 'C1', name: 'Type C1', size: '1,302 sq.ft.', rooms: '4 Bedrooms + 1 Versatile Room', features: ['Dual Key Layout'], image: 'https://picsum.photos/seed/unit-c1/800/600' },
+      { id: 'A', name: 'Type A', size: '947 sq.ft.', rooms: '3 Bedrooms', features: ['No Versatile Room', 'Standard Layout'], image: 'https://lh3.googleusercontent.com/d/1g-P1SfogqTL_Kn3oUJb5ZY6deDKmzOlr' },
+      { id: 'A1', name: 'Type A1', size: '1,098 sq.ft.', rooms: '3 Bedrooms + 1 Versatile Room', features: ['Standard Layout'], image: 'https://lh3.googleusercontent.com/d/1SEXnyJ9qDwvtMv5v7bJFsy3CNagrwmD2' },
+      { id: 'B', name: 'Type B', size: '1,055 sq.ft.', rooms: '3 Bedrooms', features: ['Standard Layout'], image: 'https://lh3.googleusercontent.com/d/1UvSRPcmAUCb7r_fu-iUQsFaOS6fST2I7' },
+      { id: 'B1', name: 'Type B1', size: '1,206 sq.ft.', rooms: '3 Bedrooms + 1 Versatile Room', features: ['Standard Layout'], image: 'https://lh3.googleusercontent.com/d/1nIQmQBH_2B2QTccESsVPM68TnkU2oRWV' },
+      { id: 'B2', name: 'Type B2', size: '1,055 sq.ft.', rooms: '3 Bedrooms', features: ['Dual Key Layout'], image: 'https://lh3.googleusercontent.com/d/1dsj_FkVCB_YkMdI37uHRuQeBT7mJ46HO' },
+      { id: 'C', name: 'Type C', size: '1,195 sq.ft.', rooms: '3 Bedrooms + 1 Versatile Room', features: ['Dual Key Layout'], image: 'https://lh3.googleusercontent.com/d/1kSL2aqbIltDDL9LcIUAp9M9KwTA8xCfU' },
+      { id: 'C1', name: 'Type C1', size: '1,302 sq.ft.', rooms: '4 Bedrooms + 1 Versatile Room', features: ['Dual Key Layout'], image: 'https://lh3.googleusercontent.com/d/1YcVlpMqsuynSy3t2DxVMhbEfdQbuFn0v' },
     ],
   },
   facilities: {
@@ -126,17 +126,17 @@ const initialContent: PageContent = {
       { name: 'Children Playground', icon: 'Home' },
     ],
     images: [
-      { url: 'https://picsum.photos/seed/pool/800/1000', alt: 'Olympic Lap Pool' },
-      { url: 'https://picsum.photos/seed/gym/800/1000', alt: 'Modern Gymnasium' },
-      { url: 'https://picsum.photos/seed/cowork/800/1000', alt: 'Co-working Space' },
-      { url: 'https://picsum.photos/seed/skydeck/800/1000', alt: 'Private Function Room' },
-      { url: 'https://picsum.photos/seed/fac5/800/1000', alt: 'Community Square' },
-      { url: 'https://picsum.photos/seed/fac6/800/1000', alt: 'Skylit Cinema' },
-      { url: 'https://picsum.photos/seed/fac7/800/1000', alt: 'Pickle Ball Court' },
-      { url: 'https://picsum.photos/seed/fac8/800/1000', alt: 'Zen Garden' },
-      { url: 'https://picsum.photos/seed/fac9/800/1000', alt: 'Indoor Zen' },
-      { url: 'https://picsum.photos/seed/fac10/800/1000', alt: 'Grand Entrance' },
-      { url: 'https://picsum.photos/seed/fac11/800/1000', alt: 'Veridian Facade' },
+      { url: 'https://lh3.googleusercontent.com/d/15tcPFACAYhGmTFwhfslVDZo1XzYIgdgM', alt: 'olympic lap pool' },
+      { url: 'https://lh3.googleusercontent.com/d/15pA2rrkEbDLBCQ0rZXY1kRMvqU5z7S8M', alt: 'veridian residence gym' },
+      { url: 'https://lh3.googleusercontent.com/d/1xAqVeh6qHm5sF2QtBBQj86igh1a2QvCz', alt: 'co working space' },
+      { url: 'https://lh3.googleusercontent.com/d/1titCzBuZ_2VlPcdM2t-8pCQOPr4cOXZx', alt: 'function room' },
+      { url: 'https://lh3.googleusercontent.com/d/101O9N134iQvhI4bs5OyYoOR2VwDsFyhx', alt: 'community square' },
+      { url: 'https://lh3.googleusercontent.com/d/1XFpsqskuWX6GgMuqhNtfUmqOz6myh-jH', alt: 'skylit cinema' },
+      { url: 'https://lh3.googleusercontent.com/d/1_cVLaRpxHRaIDIN5Q2RUQ_Gt1pfwVqlk', alt: 'pickle ball court' },
+      { url: 'https://lh3.googleusercontent.com/d/1bMN6rSRSCoxZse2NLA-VaKsMmsbwSWgj', alt: 'zen garden' },
+      { url: 'https://lh3.googleusercontent.com/d/1vaI8EFeU-rFKGy1sEKrdaIWB0EG-HOT9', alt: 'indoor zen' },
+      { url: 'https://lh3.googleusercontent.com/d/1UDp1RzVPJ27AIaqg06uQeTMFlZ1ecqQx', alt: 'grand entrance' },
+      { url: 'https://lh3.googleusercontent.com/d/1nLxHKcnDLYeWRtPV4N5IHcvNlbwpzaw7', alt: 'facade' },
     ],
   },
   location: {
@@ -147,7 +147,7 @@ const initialContent: PageContent = {
       { title: "Public Transport", desc: "Only 500m to KTM Seri Setia for easy city commuting." },
       { title: "Shopping", desc: "A quick 3km drive to Sunway Pyramid and Sunway Lagoon." },
     ],
-    mapImage: "https://picsum.photos/seed/location-aerial/1200/800",
+    mapImage: "https://lh3.googleusercontent.com/d/1LH81nwjfTTSAXWQOoeUjCFs2vnw98C_7",
     amenities: [
       {
         category: "Shopping Malls",
@@ -213,6 +213,7 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [selectedLayoutImage, setSelectedLayoutImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -376,7 +377,7 @@ export default function App() {
             <img 
               src={content.hero.image} 
               alt="" 
-              className="w-full h-full object-center object-cover brightness-75"
+              className="w-full h-full object-right md:object-center object-cover brightness-75"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent"></div>
@@ -554,7 +555,7 @@ export default function App() {
                     </a>
                   </div>
                   <div 
-                    className="order-2 md:order-2 h-auto md:h-full bg-white p-6 md:p-12 rounded-sm shadow-2xl flex items-center justify-center min-h-[250px] md:min-h-[400px] cursor-zoom-in group/layout relative"
+                    className="order-2 md:order-2 h-auto md:h-full bg-white p-2 md:p-4 rounded-sm shadow-2xl flex items-center justify-center min-h-[300px] md:min-h-[500px] cursor-zoom-in group/layout relative"
                     onClick={() => setSelectedLayoutImage(content.units.types[activeUnit].image)}
                   >
                     <div className="absolute inset-0 bg-black/0 group-hover/layout:bg-black/5 transition-colors z-10 flex items-center justify-center opacity-0 group-hover/layout:opacity-100">
@@ -563,7 +564,7 @@ export default function App() {
                     <img 
                       src={content.units.types[activeUnit].image} 
                       alt={content.units.types[activeUnit].name} 
-                      className="max-w-full max-h-full object-contain"
+                      className="w-full h-full object-contain"
                       referrerPolicy="no-referrer"
                     />
                   </div>
@@ -606,7 +607,10 @@ export default function App() {
                 </div>
               </div>
               <div className="relative group">
-                <div className="relative h-[600px] overflow-hidden rounded-sm shadow-xl">
+                <div 
+                  className="relative h-[600px] overflow-hidden rounded-sm shadow-xl cursor-zoom-in"
+                  onClick={() => setSelectedImage(content.facilities.images[activeFacility].url)}
+                >
                   <AnimatePresence mode="wait">
                     <motion.img 
                       key={activeFacility}
@@ -622,7 +626,7 @@ export default function App() {
                   </AnimatePresence>
                   
                   {/* Slider Controls */}
-                  <div className="absolute bottom-4 right-4 flex space-x-2">
+                  <div className="absolute bottom-4 right-4 flex space-x-2" onClick={(e) => e.stopPropagation()}>
                     <button 
                       onClick={prevFacility}
                       className="p-2 bg-white/80 backdrop-blur-sm hover:bg-white transition-colors rounded-full shadow-lg"
@@ -775,10 +779,13 @@ export default function App() {
                   </div>
                 ))}
               </div>
-              <div className="relative h-[300px] md:h-full md:min-h-[500px] rounded-sm overflow-hidden shadow-2xl bg-stone-50 flex items-center justify-center">
+              <div 
+                className="relative h-[300px] md:h-full md:min-h-[500px] rounded-sm overflow-hidden shadow-2xl bg-stone-50 flex items-center justify-center cursor-zoom-in"
+                onClick={() => setSelectedImage(content.location.mapImage)}
+              >
                 <img 
                   src={content.location.mapImage} 
-                  alt="Veridian Residence Location" 
+                  alt="location image" 
                   className="max-w-full max-h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
@@ -980,6 +987,47 @@ export default function App() {
                   Enquire Now
                 </a>
               </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Generic Image Lightbox */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10"
+          >
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              className="absolute inset-0 bg-black/95 backdrop-blur-md cursor-zoom-out"
+            />
+            
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative z-10 max-w-6xl w-full flex justify-center items-center pointer-events-none"
+            >
+              <button 
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-12 right-0 text-white hover:text-[#D4AF37] transition-colors p-2 pointer-events-auto"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              
+              <img 
+                src={selectedImage} 
+                alt="Expanded View" 
+                className="max-w-full max-h-[85vh] object-contain rounded-sm shadow-2xl pointer-events-auto"
+                referrerPolicy="no-referrer"
+              />
             </motion.div>
           </motion.div>
         )}
