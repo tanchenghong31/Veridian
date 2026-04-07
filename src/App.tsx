@@ -81,7 +81,7 @@ const initialContent: PageContent = {
   hero: {
     headline: "Veridian Residence",
     subheadline: "New Launch in PJ from RM5xxk. Located between Bandar Sunway and Bangsar, with easy access to NPE and Federal Highway.",
-    image: "https://lh3.googleusercontent.com/u/0/d/1nLxHKCnDLYeWRtPV4N5IHcvNlbwpzaw7",
+    image: "https://lh3.googleusercontent.com/d/1nLxHKcnDLYeWRtPV4N5IHcvNlbwpzaw7",
     ctaText: "Register Interest",
     ctaLink: "https://wa.link/o1m0cf",
   },
@@ -376,7 +376,7 @@ export default function App() {
             <img 
               src={content.hero.image} 
               alt="" 
-              className="w-full h-full object-right md:object-center object-cover brightness-75"
+              className="w-full h-full object-center object-cover brightness-75"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent"></div>
