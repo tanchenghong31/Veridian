@@ -436,8 +436,22 @@ export default function App() {
         <section id="vibe" className="py-24 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-serif mb-4">{content.vibe.title}</h2>
-              <div className="w-20 h-1 bg-[#D4AF37] mx-auto"></div>
+              <motion.h2 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-4xl font-serif mb-4"
+              >
+                {content.vibe.title}
+              </motion.h2>
+              <motion.div 
+                initial={{ width: 0 }}
+                whileInView={{ width: 80 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.4 }}
+                className="h-1 bg-[#D4AF37] mx-auto"
+              ></motion.div>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               {content.vibe.cards.map((card, idx) => (
@@ -460,8 +474,24 @@ export default function App() {
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left">
               <div>
-                <h2 className="text-4xl font-serif mb-4">{content.units.title}</h2>
-                <p className="text-white/60 uppercase tracking-widest text-sm mb-8">{content.units.subtitle}</p>
+                <motion.h2 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="text-4xl font-serif mb-4"
+                >
+                  {content.units.title}
+                </motion.h2>
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 0.6 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="text-white/60 uppercase tracking-widest text-sm mb-8"
+                >
+                  {content.units.subtitle}
+                </motion.p>
                 
                 {/* Visual Tabs */}
                 <div className="flex flex-wrap justify-center md:justify-start gap-2">
@@ -548,10 +578,24 @@ export default function App() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="text-center md:text-left">
-                <h2 className="text-4xl font-serif mb-6">{content.facilities.title}</h2>
-                <p className="text-[#A8A29E] text-lg mb-8 leading-relaxed">
+                <motion.h2 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="text-4xl font-serif mb-6"
+                >
+                  {content.facilities.title}
+                </motion.h2>
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-[#A8A29E] text-lg mb-8 leading-relaxed"
+                >
                   {content.facilities.description}
-                </p>
+                </motion.p>
                 <div className="grid grid-cols-2 gap-6 mb-12 md:mb-0">
                   {content.facilities.items.map((f, i) => (
                     <div key={i} className="flex items-center space-x-4 p-4 bg-white border border-stone-100 rounded-sm text-left">
@@ -612,9 +656,31 @@ export default function App() {
         <section id="vr" className="py-24 px-6 bg-stone-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-serif mb-4">Actual View</h2>
-              <p className="text-[#A8A29E] uppercase tracking-widest text-sm mb-8">Experience Veridian in 360°</p>
-              <div className="w-20 h-1 bg-[#D4AF37] mx-auto"></div>
+              <motion.h2 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-4xl font-serif mb-4"
+              >
+                Actual View
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-[#A8A29E] uppercase tracking-widest text-sm mb-8"
+              >
+                Experience Veridian in 360°
+              </motion.p>
+              <motion.div 
+                initial={{ width: 0 }}
+                whileInView={{ width: 80 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.4 }}
+                className="h-1 bg-[#D4AF37] mx-auto"
+              ></motion.div>
             </div>
             
             <div className="relative w-full aspect-video md:aspect-[21/9] rounded-sm overflow-hidden shadow-2xl border border-stone-200 bg-white">
@@ -639,8 +705,24 @@ export default function App() {
         <section id="location" className="py-24 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-serif mb-4">{content.location.title}</h2>
-              <p className="text-[#A8A29E] uppercase tracking-widest text-sm">{content.location.subtitle}</p>
+              <motion.h2 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-4xl font-serif mb-4"
+              >
+                {content.location.title}
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-[#A8A29E] uppercase tracking-widest text-sm"
+              >
+                {content.location.subtitle}
+              </motion.p>
             </div>
             <div className="grid md:grid-cols-3 gap-12 mb-16">
               {content.location.items.map((item, idx) => (
@@ -709,8 +791,24 @@ export default function App() {
         <section id="contact" className="py-24 px-6 bg-[#F5F5F4]">
           <div className="max-w-3xl mx-auto bg-white p-10 md:p-16 rounded-sm shadow-2xl border border-stone-100">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-serif mb-4">Book a Private Viewing</h2>
-              <p className="text-[#A8A29E]">Leave your details and our consultant will contact you shortly.</p>
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-3xl font-serif mb-4"
+              >
+                Book a Private Viewing
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-[#A8A29E]"
+              >
+                Leave your details and our consultant will contact you shortly.
+              </motion.p>
             </div>
             <form 
               action="https://formspree.io/f/xnjonlpq"
