@@ -81,7 +81,7 @@ const initialContent: PageContent = {
   hero: {
     headline: "Veridian Residence",
     subheadline: "New Launch in PJ from RM5xxk. Located between Bandar Sunway and Bangsar, with easy access to NPE and Federal Highway.",
-    image: "https://images.unsplash.com/photo-1582408921715-18e7806367c1?auto=format&fit=crop&q=80&w=1000",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
     ctaText: "Register Interest",
     ctaLink: "https://wa.link/o1m0cf",
   },
