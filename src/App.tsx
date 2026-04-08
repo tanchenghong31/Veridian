@@ -386,7 +386,7 @@ export default function App() {
           <div className="absolute inset-0 z-0">
             <img 
               src={content.hero.image} 
-              alt="Veridian Residence Facade" 
+              alt="" 
               className="w-full h-full object-right md:object-center object-cover brightness-75"
               referrerPolicy="no-referrer"
             />
@@ -841,7 +841,7 @@ export default function App() {
                       type="text" 
                       name="name"
                       required
-                      placeholder="John Doe" 
+                      placeholder="Your Name" 
                       className="w-full pl-10 pr-4 py-3 border border-stone-200 focus:border-[#D4AF37] outline-none transition-colors" 
                     />
                   </div>
@@ -882,9 +882,11 @@ export default function App() {
                     className="w-full px-4 py-3 border border-stone-200 focus:border-[#D4AF37] outline-none transition-colors appearance-none bg-white"
                   >
                     <option value="">Select Unit Type</option>
-                    <option value="Type A">Type A (947 sqft)</option>
-                    <option value="Type B">Type B (1,055 sqft)</option>
-                    <option value="Type C1">Type C1 (1,302 sqft)</option>
+                    {content.units.types.map((type) => (
+                      <option key={type.id} value={type.name}>
+                        {type.name} ({type.size})
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
