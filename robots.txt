@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veridian-vtown.com/sitemap.xml
